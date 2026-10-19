@@ -16,6 +16,13 @@ rl.question('Package name: ', (appName) => {
     fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
   }
 
+  const indexPath = './index.html';
+  if (fs.existsSync(indexPath)) {
+    let html = fs.readFileSync(indexPath, 'utf8');
+    html = html.replace(/__APP_NAME__/g, formattedName);
+    fs.writeFileSync(indexPath, html);
+  }
+
   console.log('\ndownloading...');
   execSync('npm install', { stdio: 'inherit' });
   if (fs.existsSync('.git')) {
