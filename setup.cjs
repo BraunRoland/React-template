@@ -19,7 +19,7 @@ rl.question('Package name: ', (appName) => {
   const indexPath = './index.html';
   if (fs.existsSync(indexPath)) {
     let html = fs.readFileSync(indexPath, 'utf8');
-    html = html.replace(/__APP_NAME__/g, formattedName);
+    html = html.replace(/__APP_NAME__/g, appName.toLowerCase().replace(/\s+/g, '-'));
     fs.writeFileSync(indexPath, html);
   }
 
