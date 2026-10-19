@@ -1,4 +1,4 @@
-#Alias: reactTemp
+# Alias: reactTemp
 
 # React + TypeScript + Vite
 
